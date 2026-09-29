@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>es</string>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>es</string>
+    </array>
+    <key>CFBundleExecutable</key>
+    <string>IslaMM</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.mexicomakers.islamm</string>
+    <key>CFBundleName</key>
+    <string>Isla</string>
+    <key>CFBundleDisplayName</key>
+    <string>Isla</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.12</string>
+    <key>CFBundleVersion</key>
+    <string>13</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>13.0</string>
+    <key>LSUIElement</key>
+    <true/>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSDesktopFolderUsageDescription</key>
+    <string>Isla vigila tus capturas de pantalla para mostrarlas en la isla.</string>
+    <key>NSDownloadsFolderUsageDescription</key>
+    <string>Isla muestra tus descargas nuevas en la isla.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Isla escucha tu frase para despertar (“Oye Claudio”) y lo que dictas. El audio se procesa solo en tu Mac.</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Isla reconoce “Oye Claudio” y órdenes como “nuevo chat”, “permitir” o “negar”, sin enviar tu voz a internet.</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>Isla controla Terminal, iTerm2, Spotify, Música y Finder solo cuando tú se lo pides (ir a la pestaña de Claude Code, pausar la música o vaciar la Papelera).</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>Isla muestra tus próximas juntas en la pestaña Hoy y te avisa antes de que empiecen. Tu agenda no sale de tu Mac.</string>
+    <key>NSCalendarsFullAccessUsageDescription</key>
+    <string>Isla muestra tus próximas juntas en la pestaña Hoy y te avisa antes de que empiecen. Tu agenda no sale de tu Mac.</string>
+    <key>NSDocumentsFolderUsageDescription</key>
+    <string>Isla muestra tus capturas si las guardas en Documentos.</string>
+</dict>
+</plist>
