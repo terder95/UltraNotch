@@ -1,8 +1,8 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────────────────
-#  Isla — crea un instalador .dmg (arrastra la app a Aplicaciones).
+#  UltraNotch — crea un instalador .dmg (arrastra la app a Aplicaciones).
 #  Uso:  ./crear-dmg.sh
-#  Resultado:  Isla-<versión>.dmg en esta misma carpeta.
+#  Resultado:  UltraNotch-<versión>.dmg en esta misma carpeta.
 # ─────────────────────────────────────────────────────────────
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")" && pwd)"
@@ -20,7 +20,7 @@ cp -R "$APP" "$STAGE/"
 ln -s /Applications "$STAGE/Aplicaciones"
 
 step "▸ Creando la imagen de disco…"
-# Si ya hay un disco "Isla" abierto, lo expulsamos para no confundirlo.
+# Si ya hay un disco "UltraNotch" abierto, lo expulsamos para no confundirlo.
 hdiutil detach "/Volumes/$VOLUME" -quiet 2>/dev/null || true
 hdiutil create -volname "$VOLUME" -srcfolder "$STAGE" -fs HFS+ -format UDRW -ov "$TMP_DMG" >/dev/null
 
@@ -72,6 +72,6 @@ fi
 echo ""
 ok "✓ DMG listo: $DMG"
 echo ""
-echo "  Para instalar: abre el DMG y arrastra Isla a la carpeta Aplicaciones."
+echo "  Para instalar: abre el DMG y arrastra UltraNotch a la carpeta Aplicaciones."
 echo ""
 open -R "$DMG"

@@ -1,13 +1,13 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────────────────
-#  Parte compartida: compila Isla, arma Isla.app y la firma.
+#  Parte compartida: compila UltraNotch, arma UltraNotch.app y la firma.
 #  La usan instalar.sh y crear-dmg.sh (no hace falta correrla sola).
 #  Al terminar deja listas las variables:  APP  y  ADHOC
 # ─────────────────────────────────────────────────────────────
 
-EXECUTABLE="IslaMM"                 # nombre del programa (el proceso)
-DISPLAY_NAME="Isla"                 # nombre visible de la app
-BUNDLE_ID="com.mexicomakers.islamm"
+EXECUTABLE="UltraNotch"      # nombre del programa (el proceso)
+DISPLAY_NAME="UltraNotch"    # nombre visible de la app
+BUNDLE_ID="io.github.terder95.ultranotch"
 VERSION="$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' "$ROOT/Resources/Info.plist" 2>/dev/null || echo 1.0)"
 
 ok()   { printf "\033[1;32m%s\033[0m\n" "$1"; }

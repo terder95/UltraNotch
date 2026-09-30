@@ -1,20 +1,23 @@
 // swift-tools-version:5.9
-// Isla — app que vive en el notch ("isla dinámica") de tu Mac.
+// UltraNotch — app que vive en el notch ("isla dinámica") de tu Mac.
 import PackageDescription
 
 let package = Package(
-    name: "IslaMM",
+    name: "UltraNotch",
     platforms: [.macOS(.v13)],
+    products: [
+        .executable(name: "UltraNotch", targets: ["UltraNotch"])
+    ],
     targets: [
-        // Ayudante en Objective-C para atrapar excepciones de Apple (ver IslaObjC.h).
+        // Ayudante en Objective-C para atrapar excepciones de Apple (ver UltraNotchObjC.h).
         .target(
-            name: "IslaObjC",
-            path: "Sources/IslaObjC"
+            name: "UltraNotchObjC",
+            path: "Sources/UltraNotchObjC"
         ),
         .executableTarget(
-            name: "IslaMM",
-            dependencies: ["IslaObjC"],
-            path: "Sources/IslaMM"
+            name: "UltraNotch",
+            dependencies: ["UltraNotchObjC"],
+            path: "Sources/UltraNotch"
         )
     ]
 )

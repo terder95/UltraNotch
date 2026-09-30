@@ -9,13 +9,13 @@
         <string>es</string>
     </array>
     <key>CFBundleExecutable</key>
-    <string>IslaMM</string>
+    <string>UltraNotch</string>
     <key>CFBundleIdentifier</key>
-    <string>com.mexicomakers.islamm</string>
+    <string>io.github.terder95.ultranotch</string>
     <key>CFBundleName</key>
-    <string>Isla</string>
+    <string>UltraNotch</string>
     <key>CFBundleDisplayName</key>
-    <string>Isla</string>
+    <string>UltraNotch</string>
     <key>CFBundleIconFile</key>
     <string>AppIcon</string>
     <key>CFBundlePackageType</key>
@@ -33,20 +33,20 @@
     <key>NSPrincipalClass</key>
     <string>NSApplication</string>
     <key>NSDesktopFolderUsageDescription</key>
-    <string>Isla vigila tus capturas de pantalla para mostrarlas en la isla.</string>
+    <string>UltraNotch vigila tus capturas de pantalla para mostrarlas en su estante.</string>
     <key>NSDownloadsFolderUsageDescription</key>
-    <string>Isla muestra tus descargas nuevas en la isla.</string>
+    <string>UltraNotch muestra tus descargas nuevas en su estante.</string>
     <key>NSMicrophoneUsageDescription</key>
-    <string>Isla escucha tu frase para despertar (“Oye Claudio”) y lo que dictas. El audio se procesa solo en tu Mac.</string>
+    <string>UltraNotch escucha tu frase para despertar (“Oye Claudio”) y lo que dictas. El audio se procesa solo en tu Mac.</string>
     <key>NSSpeechRecognitionUsageDescription</key>
-    <string>Isla reconoce “Oye Claudio” y órdenes como “nuevo chat”, “permitir” o “negar”, sin enviar tu voz a internet.</string>
+    <string>UltraNotch reconoce “Oye Claudio” y órdenes como “nuevo chat”, “permitir” o “negar”, sin enviar tu voz a internet.</string>
     <key>NSAppleEventsUsageDescription</key>
-    <string>Isla controla Terminal, iTerm2, Spotify, Música y Finder solo cuando tú se lo pides (ir a la pestaña de Claude Code, pausar la música o vaciar la Papelera).</string>
+    <string>UltraNotch controla Terminal, iTerm2, Spotify, Música y Finder solo cuando tú se lo pides (ir a la pestaña de Claude Code, pausar la música o vaciar la Papelera).</string>
     <key>NSCalendarsUsageDescription</key>
-    <string>Isla muestra tus próximas juntas en la pestaña Hoy y te avisa antes de que empiecen. Tu agenda no sale de tu Mac.</string>
+    <string>UltraNotch muestra tus próximas juntas en la pestaña Hoy y te avisa antes de que empiecen. Tu agenda no sale de tu Mac.</string>
     <key>NSCalendarsFullAccessUsageDescription</key>
-    <string>Isla muestra tus próximas juntas en la pestaña Hoy y te avisa antes de que empiecen. Tu agenda no sale de tu Mac.</string>
+    <string>UltraNotch muestra tus próximas juntas en la pestaña Hoy y te avisa antes de que empiecen. Tu agenda no sale de tu Mac.</string>
     <key>NSDocumentsFolderUsageDescription</key>
-    <string>Isla muestra tus capturas si las guardas en Documentos.</string>
+    <string>UltraNotch muestra tus capturas si las guardas en Documentos.</string>
 </dict>
 </plist>
