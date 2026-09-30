@@ -11,7 +11,7 @@ tus sesiones de Claude Code desde el notch… y **Dottie**, que vive ahí arriba
 ![macOS 13+](https://img.shields.io/badge/macOS-13%2B-000000?logo=apple&logoColor=white)
 ![Swift](https://img.shields.io/badge/Swift-SwiftUI%20%2B%20AppKit-F05138?logo=swift&logoColor=white)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-integrado-D97757)
-![Licencia MIT](https://img.shields.io/badge/licencia-MIT-3DA639)
+![Licencia PolyForm Noncommercial](https://img.shields.io/badge/licencia-uso%20no%20comercial-3DA639)
 
 [Qué hace](#qué-hace) · [Instalación](#instalación) · [Claude Code](#claude-code-desde-el-notch) · [Privacidad](#privacidad) · [Desinstalar](#desinstalar)
 
@@ -39,6 +39,7 @@ tus sesiones de Claude Code desde el notch… y **Dottie**, que vive ahí arriba
 </table>
 
 - **Nativa y ligera** (SwiftUI + AppKit). Sin cuentas, sin suscripciones, sin API de pago.
+- **Gratis para uso personal y no comercial** ([licencia](#licencia)).
 - **Casi todo pasa en tu Mac.** Lo poco que sale a internet está en [Privacidad](#privacidad).
 - **Hecha en español**: interfaz, voz y código.
 
@@ -263,4 +264,8 @@ UltraNotch/
 
 ## Licencia
 
-[MIT](LICENSE) © 2026 Abraham Trujillo
+[PolyForm Noncommercial 1.0.0](LICENSE) © 2026 Abraham Trujillo
+
+**Libre para uso no comercial:** puedes usar UltraNotch, estudiar su código, modificarlo y compartirlo gratis, para ti, tu escuela, una organización sin fines de lucro o investigación. **No puedes venderlo** ni usarlo en un producto o servicio de paga. Si compartes una copia o una versión modificada, incluye el archivo [LICENSE](LICENSE) con el aviso de copyright.
+
+¿Te interesa un uso comercial? Abre un *issue* y lo platicamos.
