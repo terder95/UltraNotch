@@ -188,6 +188,11 @@ final class VoiceWake: ObservableObject {
     private var log: IslaLog { IslaLog.shared }
 
     init() {
+        // Modo capturas: sin micrófono ni tus frases (se ve como si estuviera escuchando).
+        if ModoCapturas.activo {
+            state = .listening
+            return
+        }
         let defaults = UserDefaults.standard
         enabled = defaults.object(forKey: Keys.enabled) as? Bool ?? true
         wakePhrases = defaults.string(forKey: Keys.phrases) ?? VoiceWake.defaultPhrases

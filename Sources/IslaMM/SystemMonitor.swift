@@ -60,6 +60,8 @@ final class SystemMonitor: ObservableObject {
     private var lastAlerts: [String: Date] = [:]
 
     init() {
+        // Modo capturas: nada de leer tu Mac (las cifras de ejemplo llegan con cargarDemo).
+        if ModoCapturas.activo { return }
         refreshStats()
         timer = Timer.publish(every: 2, on: .main, in: .common)
             .autoconnect()
@@ -87,8 +89,16 @@ final class SystemMonitor: ObservableObject {
         }
     }
 
+    /// Modo capturas: cifras inventadas.
+    func cargarDemo(snapshot demo: Snapshot, apps: [AppMemory], limpieza: [CleanupKind: CleanupScan]) {
+        snapshot = demo
+        topApps = apps
+        cleanup = limpieza
+    }
+
     /// Se llama al entrar a la pestaña Mac.
     func tabAppeared() {
+        if ModoCapturas.activo { return }
         refreshStats(includeDisk: true)
         refreshTopApps()
         scanCleanup(force: false)

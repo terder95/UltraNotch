@@ -45,7 +45,15 @@ final class LyricsStore: ObservableObject {
     private var cache: [String: LyricsResult] = [:]
 
     init() {
+        // Modo capturas: sin internet (la letra de ejemplo llega con cargarDemo).
+        if ModoCapturas.activo { return }
         enabled = UserDefaults.standard.object(forKey: LyricsStore.enabledKey) as? Bool ?? true
+    }
+
+    /// Modo capturas: una letra inventada, ya sincronizada.
+    func cargarDemo(_ lineas: [LyricLine]) {
+        result = LyricsResult(lines: lineas)
+        state = .synced
     }
 
     /// Cambió la canción: buscamos su letra (una sola vez por canción).

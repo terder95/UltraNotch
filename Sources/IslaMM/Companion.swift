@@ -283,6 +283,8 @@ final class CompanionController: ObservableObject {
     private var lastRoam = Date()
 
     init() {
+        // Modo capturas: valores de fábrica (las poses llegan con fijarParaCaptura).
+        if ModoCapturas.activo { return }
         let defaults = UserDefaults.standard
         enabled = defaults.object(forKey: Keys.enabled) as? Bool ?? true
         bubblesEnabled = defaults.object(forKey: Keys.bubbles) as? Bool ?? true
@@ -311,6 +313,19 @@ final class CompanionController: ObservableObject {
             try? await Task.sleep(nanoseconds: 2_500_000_000)
             self?.greet()
         }
+    }
+
+    /// Modo capturas: una pose fija, sin temporizadores.
+    func fijarParaCaptura(accion: CompanionAction = .rest, inicio: Date = Date(), lado: CompanionSide = .left,
+                          dormido: Bool = false, festejaHasta: Date = .distantPast, globo: CompanionBubble? = nil) {
+        action = accion
+        actionStart = inicio
+        actionDuration = 5
+        side = lado
+        sleepy = dormido
+        celebrateUntil = festejaHasta
+        bubble = globo
+        talkUntil = .distantPast
     }
 
     // MARK: Globitos

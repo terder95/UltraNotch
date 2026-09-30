@@ -115,10 +115,21 @@ final class NowPlaying: ObservableObject {
     private var artworkCache: [String: NSImage] = [:]
 
     init() {
+        // Modo capturas: sin Spotify ni Música (la canción de ejemplo llega con cargarDemo).
+        if ModoCapturas.activo { return }
         let defaults = UserDefaults.standard
         enabled = defaults.object(forKey: Keys.enabled) as? Bool ?? true
         announce = defaults.object(forKey: Keys.announce) as? Bool ?? true
         showInIsland = defaults.object(forKey: Keys.inIsland) as? Bool ?? true
+    }
+
+    /// Modo capturas: una canción inventada que va en `segundo`.
+    func cargarDemo(_ demo: Track, carátula: NSImage?, color: Color?, segundo: Double) {
+        track = demo
+        artwork = carátula
+        artColor = color
+        positionBase = segundo
+        positionAt = Date()
     }
 
     func start() {
@@ -219,7 +230,7 @@ final class NowPlaying: ObservableObject {
 
     /// La primera vez que abres la pestaña Hoy: si ya sonaba algo antes de abrir Isla, lo preguntamos.
     func refreshIfNeeded() {
-        guard enabled, track == nil, !askedOnce else { return }
+        guard !ModoCapturas.activo, enabled, track == nil, !askedOnce else { return }
         guard let player = [Player.spotify, .music].first(where: { $0.isRunning }) else { return }
         askedOnce = true
         let app = player.scriptName
@@ -272,6 +283,7 @@ final class NowPlaying: ObservableObject {
 
     /// La pestaña Hoy está a la vista: preguntamos el avance cada 3 s (solo mientras se ve).
     func beginWatchingPosition() {
+        if ModoCapturas.activo { return }
         watchers += 1
         guard pollTask == nil else { return }
         pollTask = Task { @MainActor [weak self] in

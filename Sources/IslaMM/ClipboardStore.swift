@@ -61,6 +61,19 @@ struct ClipItem: Identifiable, Codable {
         return nil
     }
 
+    /// Modo capturas: un texto o una imagen de ejemplo, como si los hubieras copiado.
+    static func demo(texto: String, hace segundos: TimeInterval = 0) -> ClipItem {
+        var item = make(from: [[ClipEntry(type: "public.utf8-plain-text", data: Data(texto.utf8))]])
+        item.date = Date().addingTimeInterval(-segundos)
+        return item
+    }
+
+    static func demo(png: Data, hace segundos: TimeInterval = 0) -> ClipItem {
+        var item = make(from: [[ClipEntry(type: "public.png", data: png)]])
+        item.date = Date().addingTimeInterval(-segundos)
+        return item
+    }
+
     // MARK: Leer del portapapeles
 
     static func capture(from pasteboard: NSPasteboard, respectPrivacy: Bool) -> ClipItem? {
@@ -183,14 +196,25 @@ final class ClipboardStore: ObservableObject {
     private let slotsURL: URL
 
     init() {
-        lastChangeCount = NSPasteboard.general.changeCount
         slotsURL = AppPaths.support.appendingPathComponent("ranuras.plist")
+        // Modo capturas: sin leer tu portapapeles ni tus ranuras.
+        if ModoCapturas.activo {
+            lastChangeCount = 0
+            return
+        }
+        lastChangeCount = NSPasteboard.general.changeCount
         loadSlots()
         pollTimer = Timer.publish(every: 0.4, on: .main, in: .common)
             .autoconnect()
             .sink { [weak self] _ in
                 self?.poll()
             }
+    }
+
+    /// Modo capturas: historial y ranuras de ejemplo (no se guardan).
+    func cargarDemo(historial: [ClipItem], ranuras: [Int: ClipItem]) {
+        history = historial
+        slots = ranuras
     }
 
     // MARK: Historial

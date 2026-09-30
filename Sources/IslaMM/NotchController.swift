@@ -91,8 +91,22 @@ final class NotchController: ObservableObject {
     private var toastTask: Task<Void, Never>?
 
     init() {
+        // Modo capturas: negro clásico (el cristal no se ve fuera de pantalla) y sin leer tus ajustes.
+        if ModoCapturas.activo {
+            style = .black
+            return
+        }
         let saved = UserDefaults.standard.string(forKey: NotchController.styleKey) ?? ""
         style = IslandStyle(rawValue: saved) ?? .glass
+    }
+
+    /// Modo capturas: deja la isla quieta en un estado (sin ventana, sin tiempos).
+    func fijarParaCaptura(abierta: Bool, pestaña: IslandTab = .shelf, peek: Peek? = nil) {
+        isExpanded = abierta
+        tab = pestaña
+        self.peek = peek
+        isPeeking = peek != nil
+        toast = nil
     }
 
     // MARK: Instalación

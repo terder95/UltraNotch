@@ -82,6 +82,12 @@ final class CalendarStore: ObservableObject {
     private var pendingFetch: Task<Void, Never>?
 
     init() {
+        // Modo capturas: sin tu calendario (las juntas de ejemplo llegan con cargarDemo).
+        if ModoCapturas.activo {
+            useMacCalendar = true
+            access = .granted
+            return
+        }
         let defaults = UserDefaults.standard
         useMacCalendar = defaults.object(forKey: Keys.mac) as? Bool ?? false
         remindMinutes = defaults.object(forKey: Keys.remind) as? Double ?? 5
@@ -215,7 +221,13 @@ final class CalendarStore: ObservableObject {
         return (start, end)
     }
 
+    /// Modo capturas: juntas inventadas.
+    func cargarDemo(_ juntas: [Meeting]) {
+        meetings = juntas
+    }
+
     func refresh(forceLinks: Bool = false) {
+        if ModoCapturas.activo { return }
         access = CalendarStore.currentAccess()
         if forceLinks || Date().timeIntervalSince(lastLinkFetch) > 15 * 60 {
             fetchLinks()

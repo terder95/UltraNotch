@@ -194,6 +194,8 @@ final class ClaudeCodeMonitor: ObservableObject {
     private var cleanupTimer: AnyCancellable?
 
     init() {
+        // Modo capturas: sin avisos de Claude Code (no se instala nada ni se abre el socket).
+        if ModoCapturas.activo { return }
         let defaults = UserDefaults.standard
         approvalsEnabled = defaults.object(forKey: ClaudeHookServer.approvalsKey) as? Bool ?? true
         soundsEnabled = defaults.object(forKey: SoundBoard.enabledKey) as? Bool ?? true
@@ -224,6 +226,14 @@ final class ClaudeCodeMonitor: ObservableObject {
             .sink { [weak self] _ in
                 self?.prune()
             }
+    }
+
+    /// Modo capturas: sesiones, permisos y límites de ejemplo.
+    func cargarDemo(sesiones: [ClaudeSession], pendientes: [ClaudeApproval], uso: PlanUsage?) {
+        hooksInstalled = true
+        sessions = sesiones
+        approvals = pendientes
+        usage = uso
     }
 
     var activeCount: Int {

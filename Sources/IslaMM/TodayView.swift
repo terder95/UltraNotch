@@ -17,7 +17,7 @@ struct TodayView: View {
     var onOpenSettings: () -> Void
 
     /// Lo que elegiste ver (nil = automático: la letra si suena algo, si no la agenda).
-    @State private var chosen: TodayMode?
+    @State private var chosen: TodayMode? = ModoCapturas.hoyInicial
 
     private var mode: TodayMode {
         guard music.enabled, music.track != nil else { return .agenda }

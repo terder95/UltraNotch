@@ -76,12 +76,19 @@ final class ShelfStore: ObservableObject {
     private static let downloadsKey = "watchDownloads"
 
     init() {
+        // Modo capturas: sin leer tus carpetas (los archivos de ejemplo llegan con cargarDemo).
+        if ModoCapturas.activo { return }
         let defaults = UserDefaults.standard
         watchScreenshots = defaults.object(forKey: ShelfStore.screenshotsKey) as? Bool ?? true
         watchDownloads = defaults.object(forKey: ShelfStore.downloadsKey) as? Bool ?? true
         try? FileManager.default.createDirectory(at: dropsFolder, withIntermediateDirectories: true)
         load()
         restartWatchers()
+    }
+
+    /// Modo capturas: archivos de ejemplo (no se guardan).
+    func cargarDemo(_ demo: [ShelfItem]) {
+        items = demo
     }
 
     // MARK: Lectura para la interfaz
